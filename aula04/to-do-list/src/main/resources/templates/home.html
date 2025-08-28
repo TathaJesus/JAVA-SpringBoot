@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>ModelAndView</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Exemplo ModelAndView</h1>
+    <p th:text="${professor}">---</p>
+    <ul>
+        <li th:each="aluno : ${alunos}" th:text="${aluno}">---</lith>
+    </ul>
+    <p th:if="${ehVerdade}">Java é mais divertido do que Python</p>
+  </body>
+</html>
