@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -24,6 +26,13 @@ public class TodoController {
             modelAndView.addObject("ehVerdade", true);
         return modelAndView;
     }
+
+    @GetMapping
+    public ModelAndView list(){
+        var modelAndView = new ModelAndView("list");
+        return modelAndView;
+    }
+    
     
 
 }
