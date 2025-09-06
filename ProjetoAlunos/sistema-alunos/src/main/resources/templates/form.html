@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" th:href="@{templates/static/style.css}" />-->
+    <title th:text="${aluno.id} == null ? 'Novo Aluno' : 'Editar Produto'"></title>
+</head>
+
+<body>
+
+    <h1 th:text="${aluno.id} == null ? 'Novo Aluno' : 'Editar Aluno'"></h1>
+
+    <form th:action="@{/alunos}" th:object="${aluno}" method="post">
+
+        <input type="hidden" th:field="*{id}" />
+
+        <div>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" th:field="*{name}" />
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+
+        <div>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" th:field="*{cpf}" />
+            <span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+        </div>
+
+        <div>
+            <label for="turma">Turma:</label>
+            <textarea id="turma" th:field="*{turma}"></textarea>
+            <span th:if="${#fields.hasErrors('turma')}" th:errors="*{turma}"></span>
+        </div>
+
+        <div>
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+
+    <p>
+        <a th:href="@{/alunos}">Voltar para lista</a>
+    </p>
+
+</body>
+
+</html>
